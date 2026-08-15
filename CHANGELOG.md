@@ -12,6 +12,7 @@
 * [Added] Env column for Windows (environment variables)
 * [Added] RecvBytes and SendBytes columns for Windows (network I/O rate; needs Windows 11 or later)
 * [Added] WorkDir column for Windows (current working directory)
+* [Fixed] Fix invalid JSON output when a column is skipped by --only or --tree
 
 ## [v0.14.12](https://github.com/dalance/procs/compare/v0.14.11...v0.14.12) - 2026-06-25
 
