@@ -12,6 +12,7 @@
 * [Added] Env column for Windows (environment variables)
 * [Added] RecvBytes and SendBytes columns for Windows (network I/O rate; needs Windows 11 or later)
 * [Added] WorkDir column for Windows (current working directory)
+* [Added] `show_kthreads` config support for macOS and FreeBSD
 * [Fixed] Fix invalid JSON output when a column is skipped by --only or --tree
 * [Fixed] ReadBytes / WriteBytes divided by a mis-scaled interval (seconds added to milliseconds)
 
