@@ -56,6 +56,15 @@ impl ProcessInfoBase {
             interval,
         }
     }
+
+    /// Whether this row stands for a thread rather than a process.
+    ///
+    /// The key carries it: a process id is positive and a thread's is
+    /// `thread_key(tid)`, which is negative. Columns read this rather than
+    /// testing the sign, so the encoding stays in one place.
+    pub fn is_thread(&self) -> bool {
+        self.pid < 0
+    }
 }
 
 /// Dereferences a platform's `ProcessInfo` to its [`ProcessInfoBase`].

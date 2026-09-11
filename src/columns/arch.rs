@@ -1,4 +1,4 @@
-use crate::process::{ProcessInfo, thread_id};
+use crate::process::ProcessInfo;
 use crate::{column_default, Column};
 use std::cmp;
 use std::collections::HashMap;
@@ -41,7 +41,7 @@ impl Column for Arch {
         // key is a negated thread id the OS does not know - on macOS that id
         // is 64 bit wide, so handing it to `sysctl` would truncate it and
         // could name a different process.
-        let arch = if thread_id(pid).is_some() {
+        let arch = if proc.is_thread() {
             ""
         } else {
             arch_from_pid(pid)

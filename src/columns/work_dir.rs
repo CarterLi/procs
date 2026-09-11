@@ -100,7 +100,7 @@ impl Column for WorkDir {
 #[cfg(target_os = "macos")]
 impl Column for WorkDir {
     fn add(&mut self, proc: &ProcessInfo) {
-        let fmt_content = if crate::process::thread_id(proc.pid).is_some() {
+        let fmt_content = if proc.is_thread() {
             String::new()
         } else {
             work_dir_of(proc.pid)
